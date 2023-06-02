@@ -9,9 +9,9 @@ const WelcomeScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
         <View style={styles.content}>
-            <Text style={styles.title}>Welcome to Awesome App!</Text>
+            <Text style={styles.title}>Welcome to LightChat!</Text>
             <Image source={{uri:'https://bootdey.com/img/Content/avatar/avatar3.png'}} style={styles.image} />
-            <Text style={styles.desc}>{'Welcome to LightChat'}</Text>
+            <Text style={styles.desc}>{'Please log in to continue'}</Text>
         </View>
         <View style={styles.buttonsContainer}>
             <TouchableOpacity 
@@ -38,8 +38,6 @@ const customStyles = theme => ({
         backgroundColor: '#fff',
     },
     content :{
-        flex:3,
-        justifyContent:'center',
         alignItems:'center',
         
     },
@@ -62,6 +60,7 @@ const customStyles = theme => ({
     },
     buttonsContainer:{
         marginHorizontal:30,
+        marginTop:50,
         alignItems:'center',
         justifyContent:'center'
     },

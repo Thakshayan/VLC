@@ -3,14 +3,16 @@ import {
   View, 
   TextInput, 
   TouchableOpacity,
-  KeyboardAvoidingView
+  KeyboardAvoidingView,
+  Image,
+  StyleSheet
 } from "react-native";
 
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import React, { useEffect, useState } from "react";
 
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-
+import ReadImage from "../../assets/svg/ReadBackground";
 
 
 //custom hooks
@@ -31,9 +33,20 @@ export default function SendScreen({ navigation }) {
     
       
       <View style={styles.container}>
-        <KeyboardAvoidingView >
+        <View style={styles.backgroundContainer}>
+          <ReadImage
+              height={300}
+              style= {styles.background}
+              
+          />
+        <Text>Hi</Text>
+        <KeyboardAvoidingView style={styles.content}>
           <KeyboardAwareScrollView >
+         
           
+          <View style={styles.buttonContainer}>
+          
+
           <TextInput
             placeholder="Type a message..."
             value={message}
@@ -41,14 +54,14 @@ export default function SendScreen({ navigation }) {
             multiline={true}
             style={styles.inputMessage}
           />
-          <View style={styles.buttonContainer}>
+         
             <TouchableOpacity
               style={styles.readMessage} 
               onPress={onSend} 
               disabled = {!message}            
             >      
               <Text style={styles.buttonText}>
-                  Send Message
+                  Send
                 
               </Text>
               <FontAwesome
@@ -60,8 +73,11 @@ export default function SendScreen({ navigation }) {
             </TouchableOpacity>
           
           </View>
+          
           </KeyboardAwareScrollView>
         </KeyboardAvoidingView>
+       
+        </View>
       </View>
     
     
@@ -76,26 +92,34 @@ const customStyles = theme => ({
     justifyContent: "center",
     
   },
+  content:{
+    position: "relative",
+    zIndex: 1,
+  },
   inputMessage:{
     height: 45,
     fontSize: 14,
-    borderRadius: 25,
+    
     borderWidth: 1,
-    borderColor: "#eaeaea",
+    borderColor: theme.colors.primary, //"#eaeaea",
     backgroundColor: "#fafafa",
-    margin:20,
+    borderTopLeftRadius: 5, 
+    borderBottomLeftRadius: 5,
+   
+    marginRight:0,
     paddingLeft: 15,
-    width:'90%'
+    width:'60%'
   },
   readMessage:{
     flexDirection: 'row',
     height: 45,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 25,
+    borderTopRightRadius: 5, 
+    borderBottomRightRadius: 5,
     backgroundColor:theme.colors.primary,
-    paddingHorizontal:60,
-    maxWidth:300,
+    
+    width:"20%",
     
   },
   buttonText:{
@@ -104,7 +128,20 @@ const customStyles = theme => ({
   },
   buttonContainer:{
     flex:1,
+    flexDirection:'row',
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  },
+  backgroundContainer: {
+    ...StyleSheet.absoluteFillObject,
+    zIndex: 0,
+  },
+  background: {
+    flex: 1,
+    resizeMode: "cover",
+    zIndex: 0
+  },
+
+
+ 
 });

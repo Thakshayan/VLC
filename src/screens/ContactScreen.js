@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react'
 import { View, Text, FlatList, StyleSheet, Image, TextInput } from 'react-native'
 import useStyle from '../hooks/useStyles'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
 export default ContactsList = () => {
   
@@ -62,6 +63,15 @@ export default ContactsList = () => {
 
   return (
     <View style={styles.container}>
+      <View style={styles.userContainer}>
+        <View style={styles.header}>
+          <Text style={styles.name}>John Doe</Text>
+          <Text style={styles.subText}>@username</Text>
+        </View>
+        <Text style={styles.signOutText} >
+            Sign Out
+        </Text>
+      </View>
       <View style={styles.searchContainer}>
         <TextInput
           style={styles.searchInput}
@@ -73,6 +83,7 @@ export default ContactsList = () => {
       <FlatList
         data={filteredContacts}
         renderItem={({ item }) => (
+          <TouchableOpacity>
           <View style={styles.itemContainer}>
             <Image style={styles.image} source={{ uri: item.image }} />
             <View style={styles.textContainer}>
@@ -80,6 +91,7 @@ export default ContactsList = () => {
               <Text style={styles.phoneText}>{item.phone}</Text>
             </View>
           </View>
+          </TouchableOpacity>
         )}
         keyExtractor={item => item.id.toString()}
       />
@@ -92,10 +104,37 @@ const customStyles = theme => ({
     flex: 1,
     backgroundColor: '#fff',
   },
+  header: {
+    backgroundColor:'#fff',
+    justifyContent: 'center',
+  },
+  userContainer:{
+    marginTop:30,
+    padding:10,
+    flexDirection:'row',
+    justifyContent:'space-between',
+  },
+  signOutText:{
+    padding:10,
+    paddingTop:20,
+    color: theme.colors.danger,
+    fontWeight:800
+  },
+  name: {
+    fontSize:20,
+    fontWeight:'bold',
+    marginLeft:20,
+    marginBottom:3,
+  },
+  subText: {
+    fontSize:14,
+    marginLeft:20,
+    color:'#808080'
+  },
   searchContainer: {
     backgroundColor: '#eee',
     padding: 8,
-    marginTop: 60,
+    
   },
   searchInput: {
     height: 40,

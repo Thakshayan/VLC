@@ -39,7 +39,7 @@ const LoginScreen = ({navigation}) => {
   const styles = useStyle(customStyles)
 
   return (
-  <KeyboardAwareScrollView>
+  <KeyboardAwareScrollView style={styles.scrollContainer}>
     <View style={styles.container}>
       <View style={styles.logoContainer}>
         <Login
@@ -89,10 +89,13 @@ const LoginScreen = ({navigation}) => {
 };
 
 const customStyles = theme => ({
+  scrollContainer:{
+    backgroundColor: theme.colors.background,
+  },
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: theme.colors.background,
+    
   },
   logoContainer: {
     alignItems: 'center',

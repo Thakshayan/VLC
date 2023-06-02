@@ -27,22 +27,28 @@ function AppStack() {
             paddingBottom: 10,
             paddingTop: 0,
             marginTop: -5,
-            fontSize: 11,
+            fontSize: 13,
           },
+        
+          tabBarActiveTintColor: "#2E8B57", // Set the color when tab is selected
+          tabBarInactiveTintColor: "#888888", // Set the color when tab is not selected
+          
           headerStyle: appStyles.headerStyle,
           headerTitleAlign: "center",
         })}
+        
       >
+        
         <Tab.Screen
-          name={"HomeStack"}
-          component={ContactScreen}
+          name={"SendStack"}
+          component={SendStack}
           options={{
-            title: "Home",
             headerShown: false,
             tabBarIcon: ({ focused, size, color }) => {
+              
               return (
-                <Ionicons
-                  name={focused ? "home" : "home-outline"}
+                <FontAwesome
+                  name={focused ? "send" : "send-o"}
                   size={size}
                   color={color}
                 />
@@ -51,14 +57,15 @@ function AppStack() {
           }}
         />
         <Tab.Screen
-          name={"SendStack"}
-          component={SendStack}
+          name={"HomeStack"}
+          component={ContactScreen}
           options={{
+            title: "Home",
             headerShown: false,
-            tabBarIcon: ({ focused, size, color }) => {
+            tabBarIcon: ({ focused,  color, size }) => {
               return (
-                <FontAwesome
-                  name={focused ? "send" : "send-o"}
+                <Ionicons
+                  name={focused ? "home" : "home-outline"}
                   size={size}
                   color={color}
                 />
@@ -74,7 +81,7 @@ function AppStack() {
             tabBarIcon: ({ focused, size, color }) => {
               return (
                 <Ionicons
-                  name={focused ? "scan" : "scan-outline"}
+                  name={focused ? "mail-unread" : "mail-unread-outline"}
                   size={size}
                   color={color}
                 />
