@@ -11,7 +11,7 @@ const WelcomeScreen = ({navigation}) => {
         <View style={styles.content}>
             <Text style={styles.title}>Welcome to Awesome App!</Text>
             <Image source={{uri:'https://bootdey.com/img/Content/avatar/avatar3.png'}} style={styles.image} />
-            <Text style={styles.desc}>{'Please log in to continue\n to the awesommess'}</Text>
+            <Text style={styles.desc}>{'Welcome to LightChat'}</Text>
         </View>
         <View style={styles.buttonsContainer}>
             <TouchableOpacity 
