@@ -8,7 +8,7 @@ import {
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import {  FontAwesome } from "@expo/vector-icons";
 
-
+import ReadImage from "../../assets/svg/ReadBackground"; 
 
 //custom hooks
 import useStyle from "../../hooks/useStyles";
@@ -24,16 +24,20 @@ export default function ReadScreen({ navigation }) {
   return (
     <View style={styles.container}>
      
-        
+        <ReadImage
+          height="400"
+          width="400"
+        />
         <TouchableOpacity
           style={styles.readMessage} 
           onPress={onRead}             
         >      
           <Text style={styles.buttonText}>
-              Read Message
+              Read
           </Text>
-          <FontAwesome name="book" size={24} color="white" style={styles.readButtonIcon} /> 
+          <FontAwesome name="envelope" size={24} color="white" style={styles.readButtonIcon} /> 
         </TouchableOpacity>
+       
     </View>
   );
 }
@@ -42,15 +46,15 @@ const customStyles = theme => ({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems:'center',
+    justifyContent:'center'
     
   },
   readMessage:{
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 25,
+    borderRadius: 5,
     backgroundColor:theme.colors.primary,
     flexDirection:'row',
     paddingHorizontal:60

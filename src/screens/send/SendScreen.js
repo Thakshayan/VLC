@@ -1,25 +1,19 @@
+import React, {useState} from "react";
 import { 
-  Text, 
   View, 
-  TextInput, 
-  TouchableOpacity,
+  Text,
   KeyboardAvoidingView,
-  Image,
-  StyleSheet
+  StyleSheet,
+  TextInput,
+  TouchableOpacity
 } from "react-native";
-
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import React, { useEffect, useState } from "react";
+import ReadImage from "../../assets/svg/ReadBackground"; 
 
 import FontAwesome from "react-native-vector-icons/FontAwesome";
-import ReadImage from "../../assets/svg/ReadBackground";
-
-
-//custom hooks
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import useStyle from "../../hooks/useStyles";
 
-
-export default function SendScreen({ navigation }) {
+const App = () => {
 
   const styles = useStyle(customStyles);
 
@@ -30,19 +24,11 @@ export default function SendScreen({ navigation }) {
   };
 
   return (
-    
-      
-      <View style={styles.container}>
-        <View style={styles.backgroundContainer}>
-          <ReadImage
-              height={300}
-              style= {styles.background}
-              
-          />
-        <Text>Hi</Text>
-        <KeyboardAvoidingView style={styles.content}>
-          <KeyboardAwareScrollView >
-         
+    <View style={styles.container}>
+      <View style={styles.backgroundContainer}>
+        <ReadImage style={styles.background} />
+        <View style={styles.content}>
+
           
           <View style={styles.buttonContainer}>
           
@@ -74,27 +60,40 @@ export default function SendScreen({ navigation }) {
           
           </View>
           
-          </KeyboardAwareScrollView>
-        </KeyboardAvoidingView>
-       
+
         </View>
+        
       </View>
-    
-    
+    </View>
   );
-}
+};
 
 const customStyles = theme => ({
   container: {
-    flex: 1,
-    // backgroundColor: "#fff",
-    alignContent:'center',
-    justifyContent: "center",
+    marginTop:50,
+    
+  },
+  backgroundContainer: {
+    position: "relative",
+
+  },
+  background: {
+    flex: 2,
     
   },
   content:{
-    position: "relative",
-    zIndex: 1,
+    position:'absolute',
+    alignItems:'center',
+    justifyContent:'center',
+    width:'100%',
+    height:'30%'
+  },
+  text: {
+    
+    
+    fontSize: 24,
+    color: "red",
+    fontWeight: "bold",
   },
   inputMessage:{
     height: 45,
@@ -132,16 +131,6 @@ const customStyles = theme => ({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  backgroundContainer: {
-    ...StyleSheet.absoluteFillObject,
-    zIndex: 0,
-  },
-  background: {
-    flex: 1,
-    resizeMode: "cover",
-    zIndex: 0
-  },
-
-
- 
 });
+
+export default App;
