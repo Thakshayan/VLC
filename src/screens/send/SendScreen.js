@@ -13,7 +13,7 @@ import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import useStyle from "../../hooks/useStyles";
 
-const App = () => {
+const SendScreen = ({navigation}) => {
 
   const styles = useStyle(customStyles);
 
@@ -133,4 +133,4 @@ const customStyles = theme => ({
   },
 });
 
-export default App;
+export default SendScreen;

@@ -141,6 +141,27 @@ export default function SendingScreen({ navigation, route }) {
         flashMode={flashMode}
       >
         <View style={styles.container}>
+          
+          
+          
+          <View style={styles.buttonContainer}>
+          <TouchableOpacity
+              style={styles.button} 
+              onPress={() => sendData()} 
+                    
+            >      
+              <Text style={styles.buttonText}>
+                Retry
+                
+              </Text>
+              <Ionicons
+                name={ "refresh" }
+                size={20}
+                color={"white"}
+                style={styles.messageIcon}
+              />
+          </TouchableOpacity>
+          </View>
           <View style={styles.buttonContainer}>
             <TouchableOpacity
               style={styles.button} 
@@ -159,28 +180,6 @@ export default function SendingScreen({ navigation, route }) {
               </Text>
               
             </TouchableOpacity>
-          </View>
-          
-          <Message 
-            message={message}
-          />
-          <View style={styles.buttonContainer}>
-          <TouchableOpacity
-              style={styles.button} 
-              onPress={() => sendData()} 
-                    
-            >      
-              <Text style={styles.buttonText}>
-                Retry
-                
-              </Text>
-              <Ionicons
-                name={ "refresh" }
-                size={20}
-                color={"white"}
-                style={styles.messageIcon}
-              />
-          </TouchableOpacity>
           </View>
         </View>
       </Camera>
