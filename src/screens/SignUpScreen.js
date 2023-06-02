@@ -124,6 +124,20 @@ const SignUpScreen = ({navigation}) => {
         <TouchableOpacity style={styles.button} onPress={handleSubmit(onSubmitHandler)}>
           <Text style={styles.buttonText}> Register </Text>
         </TouchableOpacity>
+        <View style={styles.guideContainer}>
+                      <Text >
+                        Already have an Account?
+                        <Text 
+                          onPress={() => navigation.navigate('LoginScreen')}
+                          allowFontScaling={false}
+                          style={styles.guideText}
+                        >
+                          {`\u00A0`}
+                          LogIn
+                        </Text>
+                          
+                      </Text>
+                    </View>
       </View>
     </View>
     </View> 
@@ -224,7 +238,18 @@ const customStyles = theme => ({
   errorMsg:{
     color: theme.colors.danger,
     fontSize: 14,
-  }
+  },
+  guideContainer:{
+    marginTop:25,
+    alignItems: 'center',
+    justifyContent:'center',
+    
+  },
+  guideText:{
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: theme.colors.primary
+  },
 });
 
 export default SignUpScreen;

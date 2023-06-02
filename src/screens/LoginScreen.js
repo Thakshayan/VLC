@@ -82,6 +82,20 @@ const LoginScreen = ({navigation}) => {
         <TouchableOpacity style={styles.button} onPress={handleSubmit(handleLoginPress)}>
           <Text style={styles.buttonText}>Log In</Text>
         </TouchableOpacity>
+        <View style={styles.guideContainer}>
+                      <Text >
+                        Create New Account?
+                        <Text 
+                          onPress={() => navigation.navigate('SignUpScreen')}
+                          allowFontScaling={false}
+                          style={styles.guideText}
+                        >
+                          {`\u00A0`}
+                          SignUp
+                        </Text>
+                          
+                      </Text>
+                    </View>
       </View>
     </View>
     </KeyboardAwareScrollView> 
@@ -175,7 +189,18 @@ const customStyles = theme => ({
   errorMsg:{
     color: theme.colors.danger,
     fontSize: 14,
-  }
+  },
+  guideContainer:{
+    marginTop:25,
+    alignItems: 'center',
+    justifyContent:'center',
+    
+  },
+  guideText:{
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: theme.colors.primary
+  },
 });
 
 export default LoginScreen;

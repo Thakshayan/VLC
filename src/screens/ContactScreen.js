@@ -9,45 +9,45 @@ export default ContactsList = () => {
   const [contacts, setContacts] = useState([
     {
       id: 1,
-      name: 'John Doe',
-      phone: '555-555-5555',
-      image: 'https://www.bootdey.com/img/Content/avatar/avatar1.png',
+      name: 'Kajanan olsen',
+      phone: '@user1',
+     
     },
     {
       id: 2,
       name: 'Jane Smith',
-      phone: '444-444-4444',
-      image: 'https://www.bootdey.com/img/Content/avatar/avatar2.png',
+      phone: '@user2',
+      
     },
     {
       id: 3,
-      name: 'Bobbie Doeman',
-      phone: '333-333-3333',
-      image: 'https://www.bootdey.com/img/Content/avatar/avatar3.png',
+      name: 'Bobbie Sriman',
+      phone: '@user3',
+      
     },
     {
       id: 4,
-      name: 'Cabnth Johnson',
-      phone: '333-333-3333',
-      image: 'https://www.bootdey.com/img/Content/avatar/avatar4.png',
+      name: 'Cabnth Kajananson',
+      phone: '@user4',
+      
     },
     {
       id: 5,
       name: 'Krekvh Martin',
-      phone: '333-333-3333',
-      image: 'https://www.bootdey.com/img/Content/avatar/avatar5.png',
+      phone: '@user5',
+     
     },
     {
       id: 6,
       name: 'Jose Cassti',
-      phone: '333-333-3333',
-      image: 'https://www.bootdey.com/img/Content/avatar/avatar6.png',
+      phone: '@user6',
+      
     },
     {
       id: 7,
-      name: 'John Mrtiuhg',
-      phone: '333-333-3333',
-      image: 'https://www.bootdey.com/img/Content/avatar/avatar7.png',
+      name: 'Kajanan Mrtiuhg',
+      phone: '@user7',
+      
     },
   ])
   const [searchText, setSearchText] = useState('')
@@ -65,7 +65,7 @@ export default ContactsList = () => {
     <View style={styles.container}>
       <View style={styles.userContainer}>
         <View style={styles.header}>
-          <Text style={styles.name}>John Doe</Text>
+          <Text style={styles.name}>Kajanan Sri</Text>
           <Text style={styles.subText}>@username</Text>
         </View>
         <Text style={styles.signOutText} >
@@ -85,7 +85,7 @@ export default ContactsList = () => {
         renderItem={({ item }) => (
           <TouchableOpacity>
           <View style={styles.itemContainer}>
-            <Image style={styles.image} source={{ uri: item.image }} />
+            <Image style={styles.image} source={require('../assets/images/profile.png')} />
             <View style={styles.textContainer}>
               <Text style={styles.nameText}>{item.name}</Text>
               <Text style={styles.phoneText}>{item.phone}</Text>
@@ -154,6 +154,11 @@ const customStyles = theme => ({
     width: 48,
     height: 48,
     borderRadius: 24,
+    // backgroundColor: theme.colors.primary,
+    // tintColor: theme.colors.primary,
+    // borderColor: theme.colors.primary,
+    // borderWidth:1
+    
   },
   textContainer: {
     marginLeft: 16,
